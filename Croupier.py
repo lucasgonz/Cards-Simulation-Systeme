@@ -13,37 +13,39 @@ class Croupier:
         self.cartes = list(self.cleanDeck)
         random.shuffle(self.cleanDeck)
 
+    # Random shuffle from module library
     def shuffle(self):
         random.shuffle(self.cartes)
 
+    # print cards in array
     def show_cartes(self):
         return print(self.cartes)
 
+    # Return array of cards from deck . Optional remove
     def pige_carte(self, nb_carte, remove=False):
 
         cartes_piged=[]
-
         for i in range(nb_carte):
             index = random.randrange(len(self.cartes))
             cartes_piged.append(self.cartes[index])
             if remove: del self.cartes[index]
-
         return cartes_piged
 
+    # Return array of Cards : Deck construction from signe and figure array
     def init_deck(self):
         # Clean deck
         cartes = []
-
         # Deck construction
         for signe in self.signe:
             for figure in self.figure:
                 cartes.append(figure + signe)
-
         return cartes
 
+    # Replace deck with clean one stored in memory
     def new_deck(self):
         self.cartes = list(self.cleanDeck)
 
+    # Return strongest from 2 cards
     def strongest_card(self, card1, card2):
         for rank in self.figure:
             if rank in card1[0]:
@@ -51,6 +53,7 @@ class Croupier:
             if rank in card2[0]:
                 return card2
 
+    # Return array of index sorted : compare position in original array
     def rank_cards(self, cards):
 
         ranked=[]
@@ -62,6 +65,7 @@ class Croupier:
         ranked.sort()
         return ranked
 
+    # Return Bool subset of 3 in array
     def subset_in_array(self, array):
 
         limit = 2

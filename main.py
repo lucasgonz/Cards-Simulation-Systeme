@@ -4,14 +4,16 @@ from Joueur import Joueur
 
 
 # Config variables
-ITERATION = 100000
+ITERATION = 1000000  # nb Games
 
+# Config Env
 player = Joueur()
 croupier = Croupier()
 jeux = Jeux(player, croupier)
 
-# Main loop
+# Main Actions
 
+# Each game return his own stats
 jeux.jeux_1(ITERATION)
 jeux.jeux_2(ITERATION)
 jeux.jeux_3(ITERATION)
