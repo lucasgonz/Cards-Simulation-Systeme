@@ -38,6 +38,8 @@ class Jeux:
             cartes = np.array(self.croupier.pige_carte(2))
             # win bool True si identique else false
             win = np.all(cartes == cartes[0])
+            if win: # for debug
+                print(win)
             # Update Player gain
             self.player.update_win_loss(win, 1, 50)
 
@@ -46,7 +48,6 @@ class Jeux:
         self.clear_Game()
 
     # Pige 2 carte sans remise : if 2nd carte > 1 carte => + 2 $
-
     def jeux_3(self, times):
         # Clear player gain from previous games
         self.player.clear()
@@ -67,7 +68,7 @@ class Jeux:
 
         self.result(times)
 
-    # Pige 3 cartes sans remise : if n-coeur is > 1 coeur : win n-coeur $
+    # Pige 3 cartes sans remise : if n-coeur is >= 1 coeur : win n-coeur $
     def jeux_4(self, times):
         # Clear player gain from previous games
         self.player.clear()
